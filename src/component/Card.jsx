@@ -58,7 +58,7 @@ function Card(jobTitle) {
                                 {/* Render other job details if needed */}
                             </div>
                             <div className=''>
-                                <button className="mt-12 bg-red-800 text-white font-semibold px-4 py-2 rounded-sm cursor-pointer mx-1">
+                                <button className="mt-12 bg-red-800 text-white font-semibold px-4 py-2 rounded-sm cursor-pointer mx-1" onClick={() => deletePostedJob(item._id)}>
                                     Delete
                                 </button>
                             </div>
