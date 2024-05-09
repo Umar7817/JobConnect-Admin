@@ -19,10 +19,9 @@ function App() {
   
   useEffect(() => {
      
-     fetch("http://localhost:3000/job/get-all-jobs")
+     fetch("https://jobconnect-server.onrender.com/job/get-all-jobs")
        .then((res) => res.json())
        .then((data) => {
-         console.log(data);
          setJobs(data);
          
        });
@@ -30,11 +29,10 @@ function App() {
 
    useEffect(() => {
      
-    fetch("http://localhost:3000/job/get-all-jobs")
+    fetch("https://jobconnect-server.onrender.com/job/get-all-jobs")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        setJobs(data);
+       setJobs(data);
         
       });
   }, [deleteJob, approveJobs]);
@@ -44,7 +42,7 @@ function App() {
       return toast.error("Please Fill Details")
     }
     // Register function
-    fetch("http://localhost:3000/auth/signup", {
+    fetch("https://jobconnect-server.onrender.com/auth/signup", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -60,7 +58,7 @@ function App() {
           nevigate("/");
         }
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => toast.error(err.message));
   };
 
   const login = (email, password) => {
@@ -69,7 +67,7 @@ function App() {
       return toast.error("Please Fill Details")
     }
     // Login function
-    fetch("http://localhost:3000/auth/login", {
+    fetch("https://jobconnect-server.onrender.com/auth/login", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -88,11 +86,11 @@ function App() {
         }
         
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => toast.error(err.message));
   };
 
   const deletePostedJob = (_id) => {
-    fetch(`http://localhost:3000/job/delete-jobs/${_id}`, {
+    fetch(`https://jobconnect-server.onrender.com/job/delete-jobs/${_id}`, {
       method: "DELETE",
       headers: {
         "Content-type": "application/json",
@@ -109,11 +107,11 @@ function App() {
         }
         
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => toast.error(err.message));
    }
 
    const approveJob = (_id) => {
-    fetch(`http://localhost:3000/job/approve-job/${_id}`, {
+    fetch(`https://jobconnect-server.onrender.com/job/approve-job/${_id}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json",
@@ -130,7 +128,7 @@ function App() {
         }
         
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => toast.error(err.message));
    }
 
   return (
